@@ -3,9 +3,9 @@ import os
 # PARAMETRES
 # ========================================================
 
-nomComponent = 'users'  # component's name
+nomComponent = 'connexion'  # component's name
 
-path = "/Users/Nicolas/work/cda/homesono/homesono_ihm_v2/src/app/views/"  # wanted path
+path = "/Users/Nicolas/work/cda/homesono/home-sono-ionic/src/components/"  # wanted path
 
 # ========================================================
 #   CODE
@@ -17,10 +17,10 @@ f = open(path+nomComponent+"/"+nomComponent+".jsx", "a")
 text = """import React, { useEffect } from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-//import * as Action from "../../redux/";
+//import * as """+nomComponent+"""Action from "../../redux/";
 import "./"""+nomComponent+""".scss";
 
-function """+nomComponent.title()+"""Component({ state, action }) {
+function """+nomComponent.title()+"""Component({ state"""+nomComponent.title()+""", action"""+nomComponent.title()+""" }) {
   useEffect(() => {
     console.log(state);
   }, []);
@@ -36,10 +36,12 @@ function """+nomComponent.title()+"""Component({ state, action }) {
 
 const mapStateToProps = (state) => ({
   state: state,
+  state"""+nomComponent.title()+""": state."""+nomComponent+"""Reducer,
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  //action: bindActionCreators(Action, dispatch),
+  //action"""+nomComponent.title()+""": bindActionCreators("""+nomComponent+"""Action, dispatch),
 });
 
 const """+nomComponent.title()+""" = connect(mapStateToProps, mapDispatchToProps)("""+nomComponent.title()+"""Component);

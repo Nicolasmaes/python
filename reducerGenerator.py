@@ -4,13 +4,14 @@ import os
 # PARAMETRES
 # =============================================================================
 
-nomFichier = 'users'  # Nom du dossier enfant
+nomFichier = 'zozo'  # Nom du dossier enfant
 
 # Chemin du dossier redux
-path = "/Users/Nicolas/work/cda/"
+path = "/Users/Nicolas/work/cda/homesono/home-sono-ionic/src/redux/"
 
 # Liste des Endpoints du fichier en Majuscule
-nomVariableEndPoint = ["ADD_USER", "USER", "UPDATE_USER", "DELETE_USER"]
+nomVariableEndPoint = ["ADD_USER", "USER",
+                       "UPDATE_USER", "DELETE_USER"]
 # Liste des API disponible dans le WS caller
 nomApi = ["HomesonoAPI"]
 
@@ -67,7 +68,7 @@ for var in nomVariableEndPoint:
         "\t\tdispatch(set"+var.replace("_",
                                        " ").title().replace(" ", "")+"Success(res.data));\n"
         "\t})\n",
-        "\t.catch((err) => {\n", "\t\tdispatch(removeAuth(err.response.status))\n\t\tdispatch(set" +
+        "\t.catch((err) => {", "\t\t\n\t\tdispatch(set" +
         var.replace("_", " ").title().replace(" ", "")+"Error(err.data))\n"
         "\t})\n}\n\n"]
     f.writelines(lines)

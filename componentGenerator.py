@@ -3,7 +3,7 @@ import os
 # PARAMETRES
 # ========================================================
 
-nomComponent = 'connexion'  # component's name
+nomComponent = 'accueil'  # component's name
 
 path = "/Users/Nicolas/work/cda/homesono/home-sono-ionic/src/components/"  # wanted path
 

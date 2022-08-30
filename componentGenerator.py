@@ -3,9 +3,12 @@ import os
 # PARAMETRES
 # ========================================================
 
-nomComponent = 'myAccount'  # component's name
+nomComponent = 'shoppingCart'  # component's name
 
-path = "/Users/Nicolas/work/cda/homesono/home-sono-ionic/src/components/"  # wanted path
+path = "/Users/Nicolas/work/cda_works/homesono/home-sono-ionic/src/components/"  # wanted path
+
+pagePath = "/Users/Nicolas/work/cda_works/homesono/home-sono-ionic/src/pages/"  # wanted path
+
 
 # ========================================================
 #   CODE
@@ -20,9 +23,9 @@ import { connect } from "react-redux";
 //import * as """+nomComponent+"""Action from "../../redux/";
 import "./"""+nomComponent+""".scss";
 
-function """+nomComponent.title()+"""Component({ state"""+nomComponent.title()+""", action"""+nomComponent.title()+""" }) {
+function """+nomComponent.title()+"""Component({state, state"""+nomComponent.title()+""", action"""+nomComponent.title()+""" }) {
   useEffect(() => {
-    console.log(state);
+    
   }, []);
 
   return (
@@ -53,8 +56,59 @@ f.close()
 f = open(path+nomComponent+"/"+nomComponent+".scss", "a")
 text = """."""+nomComponent+"""{
 
-
+css du component
 
 }"""
 f.writelines(text)
 f.close()
+
+os.mkdir(pagePath+nomComponent.title())
+
+f2 = open(pagePath+nomComponent.title()+"/"+nomComponent.title()+".tsx", "a")
+text2 = """import {
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
+} from "@ionic/react";
+import React from "react";
+import """+nomComponent.title()+""" from "../../components/"""+nomComponent+"""/"""+nomComponent+"""";
+import "./"""+nomComponent.title()+""".css";
+
+const """+nomComponent.title()+"""Page: React.FC = () => {
+  return (
+    <>
+      <IonPage>
+        <IonHeader>
+          <IonToolbar>
+            <IonTitle color="primary">"""+nomComponent.title()+"""</IonTitle>
+            <IonButtons slot="start">
+              <IonMenuButton menu="main-menu"></IonMenuButton>
+            </IonButtons>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent fullscreen>
+          <"""+nomComponent.title()+""" />
+        </IonContent>
+      </IonPage>
+    </>
+  );
+};
+
+export default """+nomComponent.title()+"""Page;
+"""
+
+f2.writelines(text2)
+f2.close()
+
+f2 = open(pagePath+nomComponent.title()+"/"+nomComponent.title()+".css", "a")
+text2 = """."""+nomComponent.title()+"""{
+
+css de la page
+
+}"""
+f2.writelines(text2)
+f2.close()
